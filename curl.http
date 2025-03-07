@@ -1,0 +1,15 @@
+curl -X GET http://localhost:5001/logs/metrics
+
+
+#curl -X GET http://localhost:5001/logs
+
+
+#curl -X POST http://localhost:5000/logs/write -H "Content-Type: application/json" -d '{"message": "User logged in", "severity": "INFO"}'
+
+# curl -X POST http://localhost:5000/logs/write \
+#      -H "Content-Type: application/json" \
+#      -d '{"message": "Disk space running low", "severity": "WARNING"}'
+
+# curl -X POST http://localhost:5000/logs/write \
+#      -H "Content-Type: application/json" \
+#      -d '{"message": "Database connection failed", "severity": "ERROR"}'

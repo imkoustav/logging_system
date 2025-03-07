@@ -1,0 +1,27 @@
+PS C:\Users\koust> wsl -d Ubuntu
+koust@LAPTOP-157VH3CI:/mnt/c/Users/koust$
+koust@LAPTOP-157VH3CI:/mnt/c/Users/koust$
+koust@LAPTOP-157VH3CI:/mnt/c/Users/koust$ cd ..
+koust@LAPTOP-157VH3CI:/mnt/c/Users$ cd..
+cd..: command not found
+koust@LAPTOP-157VH3CI:/mnt/c/Users$ cd ..
+koust@LAPTOP-157VH3CI:/mnt/c$ cd ..
+koust@LAPTOP-157VH3CI:/mnt$ cd ..
+koust@LAPTOP-157VH3CI:/$ cd ..
+koust@LAPTOP-157VH3CI:/$
+koust@LAPTOP-157VH3CI:/$ pwd
+/
+koust@LAPTOP-157VH3CI:/$ exit
+logout
+PS C:\Users\koust> wsl -l -v
+  NAME              STATE           VERSION
+* docker-desktop    Stopped         2
+  Ubuntu            Running         2
+PS C:\Users\koust> wsl -u root
+LAPTOP-157VH3CI:/mnt/host/c/Users/koust# exit
+PS C:\Users\koust> wsl -d Ubuntu
+koust@LAPTOP-157VH3CI:/mnt/c/Users/koust$ su - koust
+Password:
+koust@LAPTOP-157VH3CI:~$ pwd
+/home/koust
+koust@LAPTOP-157VH3CI:~$

@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+  log_ingestion:
+    build: ./log_ingestion
+    container_name: log_ingestion
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - DOCKER_ENV=true
+
+  log_processor:
+    build: ./log_processor
+    container_name: log_processor
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - DOCKER_ENV=true
+    volumes:
+      - ./log_processor/logs:/app/logs # Persist logs
+
+  log_retrieval:
+    build: ./log_retrieval
+    container_name: log_retrieval
+    ports:
+      - "5001:5001"
+    environment:
+      - DOCKER_ENV=true
+    volumes:
+      - ./log_processor/logs:/app/logs # Read logs
